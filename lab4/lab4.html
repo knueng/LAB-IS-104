@@ -1,0 +1,189 @@
+﻿
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<!-- Har brukt 4 timer fordelt på 3 dager -->
+<!-- Har jobbet med oppgaven alene -->
+
+<title>Lab4</title>
+ 
+
+ <link rel="stylesheet" href="lab4.css">
+ <script src="js/jquery-1.8.1.js"></script>
+ <script src="js/scroll.js"></script>
+ 
+ 
+ 
+ 
+<script>
+$(function() {
+				//Markere lenken og rulle til det valgte elementet i DOM
+				$( ".firstUL li" ).each(function() { 
+					$( this ).click(function() { // Fange hendelsen når bruker klikker en av bokstavene
+						$( ".firstUL li" ).removeClass( "selected" ); 	// I utgangspunktet fjerne klassen "selected", hvis den finnes
+						$( this ).addClass( "selected" ); 				// Legg til "selected" klassen til det elementet brukeren har klikket på
+						elementClick = $( this ).attr( "id" ); 			// Få tak i den tilsvarende "id", altså "a", "b", osv.
+
+						// Rulle til det valgte DOM-elementet content-for-X, der "X" er tilsvarende valgt bokstav
+						$( ".content-container" ).scrollTo($( "#content-for-"+elementClick ), 800);
+
+						// Endre bakgrunnsfarge
+						$( ".content-container div" ).css( { 'background-color' : '#ffffff' } );
+						$( ".content-container #content-for-"+elementClick ).css( { 'background-color' : '#d2e2fc' } );
+					});
+				});
+
+				// Når "Tilbake til toppen" blir klikket må "A" markeres og innholdet må rulles til toppen
+				$( '.return-to-top' ).click(function() {
+					$( ".firstUL li").each(function() {
+						$( ".firstUL li" ).removeClass( "selected" ); //Fjern klassen "selected", hvis den finnes
+					});
+
+					// Legg til klassen selected til første bokstav i alfabetet
+					$( "a" ).addClass( "selected" );
+					// Rulle til et element, "A" i dette tilfellet.
+					$( ".content-container" ).scrollTo($( "#content-for-a" ), 800);
+					// Sette bakgrunnsfargen til hvit til alle div og til lyseblått for valgt div, altså (a i tilfellet)
+					$( ".content-container div" ).css( { 'background-color' : '#ffffff' } );
+					$( ".content-container #content-for-a" ).css( { 'background-color' : '#d2e2fc' } );
+
+
+				});
+
+		});
+
+</script>
+ 
+ 
+</head>
+<body>
+
+
+<div id="body-container">
+
+	<div class="glossary-container">
+	<ul class="firstUL">
+	<li id="a" class="selected">A</li>
+	<li id="b">B</li>
+	<li id="c">C</li>
+	<li id="d">D</li>
+	<li id="e">E</li>
+	<li id="f">F</li>
+	<li id="g">G</li>
+	</ul>
+	</div>
+	
+	<div class="content-container">
+	<!--A-->
+	<div id="content-for-a" style="background-color:#d2e2fc">
+		<!-- Innholdet for A -->
+		<dl>
+			<dt>ActionScript</dt>
+			<dd>ActionScript er et programmeringsspråk basert 
+			på ECMAScript som blir brukt primært til utvikling 
+			av nettsider og programvare for Adobe Flash 
+			Player-plattformen, men også i noen databaseapplikasjoner 
+			og grunnleggende robotikk.</dd>
+			<dt>AppleScript</dt>
+			<dd>AppleScript er et skriptspråk av Apple som brukes i Mac OS og Mac OS X.</dd>
+		</dl>
+		<p class="return-to-top">Tilbake til toppen</p>
+	</div>
+	
+	<!--B-->
+	<div id="content-for-b">
+	<!-- Innholdet for B -->
+	<dl>
+			<dt>BASIC</dt>
+			<dd>BASIC (akronym for Beginner's All-purpose Symbolic Instruction Code) er et programmeringsspråk 
+			som ble utviklet i USA i 1963, av John George Kemeny og Thomas Eugene Kurtz på Dartmouth College, 
+			med det mål for øye å gjøre programmering enklere.</dd>
+			<dt>BETA</dt>
+			<dd>BETA er et rent objekt-orientert programmeringsspråk, BETA ble utviklet av Scandinavian School 
+			in System Development hvor det første objekt-orienterte programmeringsspråket Simula ble utviklet.</dd>
+		</dl>
+		<p class="return-to-top">Tilbake til toppen</p>
+	</div>
+
+	<!--C-->
+	<div id="content-for-c">
+	<!-- Innholdet for C -->
+	<dl>
+			<dt>C</dt>
+			<dd>C er et høynivå programmeringsspråk. Med dette språket er det mulig å uttrykke seg svært maskinnært 
+			til høynivåspråk å være. Til forskjell fra lavnivåspråkene kan C-kode kompileres for de fleste maskiner. </dd>
+			<dt>COBOL</dt>
+			<dd>COBOL (COmmon Business Oriented Language) er et programmeringsspråk som har vært i utstrakt bruk for
+			koding av økonomiske og administrative transaksjonssystemer. Det ble konstruert i 1959 initiert av amerikanske forsvarsmyndigheter. </dd>
+		</dl>
+		<p class="return-to-top">Tilbake til toppen</p>
+	
+	</div>
+	
+	<!--D-->
+	<div id="content-for-d">
+	<!-- Innholdet for D -->
+	<dl>
+			<dt>D</dt>
+			<dd>D er et programmeringsspråk utviklet av Walter Bright. Det tar mål av seg til å kombinere ytelse og fleksibillitet fra språk som C og C++, 
+			med høynivåfunksjonalitet og programmerervennlighet fra språk som Ruby og Python. </dd>
+			<dt>Delphi</dt>
+			<dd>Delphi er et programvareutviklingsmiljø (Integrated Development Environment (IDE)) basert på programmeringsspråket Pascal. Grunnlaget var
+			det særdeles populære verktøyet Turbo Pascal for PC med en effektiv kompilator utviklet under ledelse av Anders Hejlsberg. Borland Software Inc. 
+			utviklet en objektbasert utvidelse kalt Object Pascal som de i neste runde tilpasset for bruk mot Windows («Objekt Pascal for Windows»). 
+			De neste versjonene ble lansert under navnet Delphi.</dd>
+		</dl>
+		<p class="return-to-top">Tilbake til toppen</p>
+	
+	</div>
+	
+	<!--E-->
+	<div id="content-for-e" style="background-color:#d2e2fc">
+		<!-- Innholdet for e -->
+		<dl>
+			<dt>Erlang	</dt>
+			<dd>Erlang er et funksjonelt programmeringsspråk designet med hensyn på parallellprogrammering.
+			Språket ble utviklet av Ericsson på 1980-tallet til bruk innen telekommunikasjon, og brukes blant annet av selskaper som Amazon, Yahoo! og Facebook.
+			Et Erlang-program består typisk av mange små prosesser som kommuniserer ved hjelp av asynkrone meldinger</dd>
+			<dt>ECMAScript</dt>
+			<dd>ECMAScript er et skriptprogrammeringsspråk for web. JavaScript og JScript er basert på ECMAScript-standarden ECMA-262</dd>
+		</dl>
+		<p class="return-to-top">Tilbake til toppen</p>
+	</div>
+	
+	<!--F-->
+	<div id="content-for-f" style="background-color:#d2e2fc">
+		<!-- Innholdet for F -->
+		<dl>
+			<dt>Forth</dt>
+			<dd>Forth er et programmeringsspråk og utviklingsmiljø utviklet av Charles Moore på slutten av 1960-tallet/begynnelsen av 1970-tallet. 
+			Språket er sentrert rundt bruken av en stack, og er kanskje mest kjent for sin postfiks-notasjon – også kalt polsk baklengsnotasjon 
+			(reverse polish notation). Forth bruker en blanding av kompilering og sanntidstolkning, og er i stand til å kompilere seg selv til en ny kompilator 
+			(såkalt metakompilering).</dd>
+			<dt>Fortran</dt>
+			<dd>Fortran, tidligere kalt FORTRAN (FORmula TRANslation), blir ofte ansett som det første programmeringsspråket, siden det i prinsippet 
+			(og senere også i praksis) var portabelt. Fortran var uavhengig av datamaskinens maskinspråk, og kunne benyttes av ulike datamaskinarkitekturer.</dd>
+		</dl>
+		<p class="return-to-top">Tilbake til toppen</p>
+	</div>
+	
+	<!--G-->
+	<div id="content-for-g" style="background-color:#d2e2fc">
+		<!-- Innholdet for G -->
+		<dl>
+			<dt>Go</dt>
+			<dd>Go er et programmeringsspråk utviklet av Google. Det ble påbegynt i september 2007 av Robert Griesemer, Rob Pike og Ken Thompson			7
+			og ble offisielt annonsert i november 2009, med arbeid videreført fra Inferno-operativsystemet.</dd>
+			<dt>GameMonkey</dt>
+			<dd>GameMonkey er et skriptspråk som blir brukt i spill og spillapplikasjoner.</dd>
+		</dl>
+		<p class="return-to-top">Tilbake til toppen</p>
+	</div>
+</div>	
+
+
+<address>Laget av: Knut Enga<br>19.10.2013</address>
+
+</body>
+</html>
